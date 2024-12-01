@@ -9,6 +9,8 @@
   <ul>
     <li>
       <a href="../index.html" th:href="@{/}">トップページ</a>
+    </li><li>
+      <a href="./creationForm.html" th:href="@{/issues/creationForm}">作成</a>
     </li>
   </ul>
   <table>
@@ -21,7 +23,9 @@
     <tbody>
       <tr th:each="issue : ${IssueList}">
         <th th:text="${issue.id}">(id)</th>
-        <td th:text="${issue.summary}">(summary)</td>
+        <td>
+          <a href="./detail.html" th:href="@{/issues/{issueId}(issueId =${issue.id})}" th:text="${issue.summary}">(summary)</a>
+        </td>
       </tr>
     </tbody>
   </table>
